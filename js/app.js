@@ -16,14 +16,14 @@ loadProducts('https://fakestoreapi.com/products');
 // show all product in UI
 const showProducts = (products) => {
    
-   console.log(products)
+   // console.log(products)
    setInnerText('total_products', products.length);
 
    document.getElementById("all-products").innerHTML = "";
 
    const allProducts = products.slice(0, 10).map((pd) => pd);
    for (const product of allProducts) {
-      console.log(product.image)
+      // console.log(product.image)
       const image = product.image;
       const div = document.createElement('div');
       div.classList.add('product');
@@ -65,7 +65,7 @@ const showProductDetails = (product_id) => {
 const showProductDetailsInModal = (product_details) => {
    console.log(product_details);
    setInnerText('exampleModalLabel', product_details.title);
-   setInnerText('product_id', product_details.id);
+   setInnerText('productId', product_details.id);
    setInnerText('modal_body', product_details.description);
    setInnerText('rating', product_details.rating.rate);
 };
@@ -86,7 +86,7 @@ const updatePrice = (id, value) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-   document.getElementById(id).innerText = Math.round(value);
+   document.getElementById(id).innerText = value;
 };
 
 // update delivery charge and total Tax
