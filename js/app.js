@@ -5,7 +5,7 @@ const loadProducts = (url) => {
       .then((res) => res.json())
       .then((data) => {
          // debugger
-         // arr.push(data);
+         arr.push(data);
          showProducts(data);
       })
       .catch(error => console.log(error.message))
@@ -16,7 +16,7 @@ loadProducts('https://fakestoreapi.com/products');
 // show all product in UI
 const showProducts = (products) => {
    
-   // console.log(products)
+   console.log(products.length)
    setInnerText('total_products', products.length);
 
    document.getElementById("all-products").innerHTML = "";
@@ -117,8 +117,9 @@ const updateTotal = () => {
 
 // search by category
 document.getElementById("search-btn").addEventListener("click", function () {
+   console.log(arr)
    const inputField = document.getElementById("input-value").value;
-   const searchedProduct = arr[0].find((p) =>
+   const searchedProduct = arr[0].filter((p) =>
      p.category.startsWith(`${inputField}`)
    );
    showProducts(searchedProduct);
